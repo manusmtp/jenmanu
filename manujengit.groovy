@@ -1,4 +1,4 @@
-Job('ManuFileProcessing') {
+pipelineJob('ManuFileProcessing') {
     description('A pipeline job that runs a Jenkinsfile and processes the uploaded file.')
 
     parameters {
@@ -12,7 +12,7 @@ Job('ManuFileProcessing') {
                     remote {
                         url('https://github.com/manusmtp/jenmanu.git')  // Your Git repository URL
                     }
-                    branch('*/main')  // Branch to check out
+                    branches('*/main')  // Corrected to "branches"
                 }
             }
             scriptPath('Jenkinsfile')  // Path to Jenkinsfile in the repository

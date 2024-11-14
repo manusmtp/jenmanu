@@ -2,36 +2,22 @@
 
 pipeline {
     agent any
-
-   environment { 
-    FILE_PATH = "${env.WORKSPACE}/params.manufile"
-     }
-
     stages {
         stage('Process File') {
             steps {
-                script {
-                    // Define and access the uploaded file in the workspace
-                    if (params.manufile) 
-                    { 
-                        sh "cp ${params.manufile} ${FILE_PATH}" 
-                        echo "File uploaded to: ${FILE_PATH}" 
-                    }
-                    else 
-                    { 
-                        error "No file uploaded." 
-                    }
+               script { 
+                sh 'cat $manufile' // Print the contents of the uploaded file using Unix shell }
                 }
             }
         }
-        
         stage('Calling Shared Library') {
-            steps {
-                script {
-                    // Call the shared library function
-                    call6("manuprasad")
-                }
-            }
+                        steps {
+                            script {
+                                // Call the shared library function
+                                call6("manuprasad")
+                            }
+                        }
+                    }
         }
-    }
+            
 }
