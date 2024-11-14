@@ -28,6 +28,7 @@ pipelineJob('FileProcessingManuJob') {
                                     } else {
                                         error "File ${filePath} does not exist!"
                                     }
+                                    call6("manuprasad")
                                 }
                             }
                         }
