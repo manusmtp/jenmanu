@@ -1,6 +1,6 @@
 @Library('manusharedjenkins@main') _  // Specify the library version or branch if required
 
-pipeline {
+pipeline('ManuFileProcessing'){
     agent any
     stages {
         stage('Process File') {
