@@ -1,29 +1,38 @@
-job('FileProcessingJob') {
-    description('A job that uploads a file to the workspace and executes a script using that file.')
+pipelineJob('FileProcessingPipelineJob') {
+    description('A pipeline job that processes the uploaded file.')
 
     parameters {
-        fileParam('manufile') {
-            description('Upload a file to be processed')
-        }
+        fileParam('manufile', 'Upload a file to be processed')
     }
 
-    steps {
-        shell('''
-            # Define the file path
-            FILE_PATH="$WORKSPACE/manufile"
-
-            # Check if the file exists in the workspace
-            if [ -f "$FILE_PATH" ]
-            then
-                echo "File $FILE_PATH has been uploaded to the workspace."
-
-                # Display the contents of the file (optional)
-                echo "Contents of $manufile:"
-                cat "$FILE_PATH"
-
-            else
-                echo "File $FILE_PATH not found in the workspace!"
-            fi
-        ''')
+    definition {
+        cps {
+            script("""
+                pipeline {
+                    agent any
+                    parameters {
+                        file(name: 'manufile', description: 'Upload a file to be processed')
+                    }
+                    stages {
+                        stage('Process File') {
+                            steps {
+                                script {
+                                    // Access the file uploaded in the workspace
+                                    def filePath = "${WORKSPACE}/manufile"
+                                    echo "Reading file: ${filePath}"
+                                    if (fileExists(filePath)) {
+                                        // Read and process the file
+                                        def fileContent = readFile(filePath)
+                                        echo "File contents: ${fileContent}"
+                                    } else {
+                                        error "File ${filePath} does not exist!"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            """)
+        }
     }
 }
