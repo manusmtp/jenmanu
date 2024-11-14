@@ -6,7 +6,6 @@ pipelineJob('ManuFileProcessing') {
     }
 
     definition {
-        // Pointing to the Jenkinsfile in the repository or in the workspace
         cpsScm {
             scm {
                 git {
