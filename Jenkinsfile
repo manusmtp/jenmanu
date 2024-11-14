@@ -1,4 +1,4 @@
-@Library('manusharedjenkins') _
+@Library('manusharedjenkins@main') _  // Specify the library version or branch if required
 
 pipeline {
     agent any
@@ -9,25 +9,23 @@ pipeline {
                     // Access the uploaded file in the workspace
                     def filePath = "${env.WORKSPACE}/${params.manufile}"
                     echo "Reading file: ${filePath}"
+                    
                     if (fileExists(filePath)) {
                         // Read and process the file
                         def fileContent = readFile(filePath)
-                        echo "File contents: ${fileContent}"
+                        echo "File contents:\n${fileContent}"
                     } else {
                         error "File ${filePath} does not exist!"
                     }
-                    // Call the shared library function
-                   
                 }
             }
         }
-        stage('caling shared lib') {
+        
+        stage('Calling Shared Library') {
             steps {
                 script {
-                     call6("manuprasad")
-                     sh"""
-                        echo "shared is called "
-                     """
+                    // Call the shared library function
+                    call6("manuprasad")
                 }
             }
         }
