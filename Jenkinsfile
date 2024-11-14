@@ -6,7 +6,7 @@ pipeline {
         stage('Process File') {
             steps {
                script { 
-                sh 'cat $manufile' // Print the contents of the uploaded file using Unix shell }
+                sh 'cat ${params.manufile}' // Print the contents of the uploaded file using Unix shell }
                 }
             }
         }
