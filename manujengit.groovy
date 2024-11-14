@@ -1,4 +1,4 @@
-pipelineJob('ManuFileProcessing') {
+Job('ManuFileProcessing') {
     description('A pipeline job that runs a Jenkinsfile and processes the uploaded file.')
 
     parameters {
