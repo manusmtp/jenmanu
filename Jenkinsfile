@@ -9,15 +9,19 @@ pipeline {
                 script {
                     // Access the uploaded file directly in the workspace
                     def filePath = "${workspace}/${params.manufile}"
+                    sh """
                     echo "Reading file from: ${filePath}"
 
-                    // Check if the file exists and process it
-                    if (fileExists(filePath)) {
-                        def fileContent = readFile(filePath)
-                        echo "File contents:\n${fileContent}"
-                    } else {
-                        error "File ${filePath} does not exist!"
-                    }
+                    # Check if the file exists
+                    if [ -f "${filePath}" ]; then
+                        # Read the file content and display it
+                        fileContent=\$(cat "${filePath}")
+                        echo "File contents: \${fileContent}"
+                    else
+                        echo "Error: File ${filePath} does not exist!"
+                        exit 1  # Exit with error code
+                    fi
+                    """
                 }
             }
         }
