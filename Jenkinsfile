@@ -17,7 +17,17 @@ pipeline {
                         error "File ${filePath} does not exist!"
                     }
                     // Call the shared library function
-                    call6("manuprasad")
+                   
+                }
+            }
+        }
+        stage('caling shared lib') {
+            steps {
+                script {
+                     call6("manuprasad")
+                     sh"""
+                        echo "shared is called "
+                     """
                 }
             }
         }
