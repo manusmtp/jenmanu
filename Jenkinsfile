@@ -7,8 +7,8 @@ pipeline {
             steps {
                 script {
                     // Access the uploaded file in the workspace
-                    def filePath = "${env.WORKSPACE}/${params.manufile}"
-                    echo "Reading file: ${filePath}"
+                  def filePath = "${env.WORKSPACE}/${params.manufile}"
+                  echo "Reading file: ${filePath}"
                     
                     if (fileExists(filePath)) {
                         // Read and process the file
