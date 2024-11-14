@@ -1,4 +1,4 @@
-pipelineJob('FileProcessingPipelineJob') {
+pipelineJob('FileProcessingManuJob') {
     description('A pipeline job that processes the uploaded file.')
 
     parameters {
