@@ -2,15 +2,12 @@
 
 pipeline {
     agent any
-    parameters {
-        file(name: 'manufile', description: 'Upload a file to be processed')
-    }
     stages {
         stage('Process File') {
             steps {
                 script {
                     // Access the uploaded file in the workspace
-                    def filePath = "${WORKSPACE}/manufile"
+                    def filePath = "${env.WORKSPACE}/${params.manufile}"
                     echo "Reading file: ${filePath}"
                     if (fileExists(filePath)) {
                         // Read and process the file
