@@ -2,8 +2,8 @@ job('FileProcessingJob') {
     description('A job that uploads a file to the workspace and executes a script using that file.')
 
     parameters {
-        fileParam('manufile') {
-            description('Upload a file to be processed')
+    parameters {
+        fileParam('manufile', 'Upload a file to be processed')  // Use the correct method signature
         }
     }
 
