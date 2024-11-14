@@ -12,9 +12,9 @@ pipeline {
             steps {
                 script {
                     // Define and access the uploaded file in the workspace
-                    if (params.TEST_FILE) 
+                    if (params.manufile) 
                     { 
-                        sh "cp ${params.TEST_FILE} ${FILE_PATH}" 
+                        sh "cp ${params.manufile} ${FILE_PATH}" 
                         echo "File uploaded to: ${FILE_PATH}" 
                     }
                     else 
