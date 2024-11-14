@@ -8,6 +8,7 @@ pipelineJob('FileProcessingPipelineJob') {
     definition {
         cps {
             script("""
+            @Library('manusharedjenkins') _
                 pipeline {
                     agent any
                     parameters {
