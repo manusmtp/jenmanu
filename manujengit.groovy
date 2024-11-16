@@ -2,7 +2,6 @@ job('example-job-with-three-active-choice-parameters') {
     parameters {
         activeChoiceParam('CHOICE_PARAM_1') {
             description('Select an option for Parameter 1')
-            filterable()
             choiceType('SINGLE_SELECT')
             groovyScript {
                 script('["Option 1", "Option 2", "Option 3"]')
@@ -11,7 +10,6 @@ job('example-job-with-three-active-choice-parameters') {
         }
         activeChoiceReactiveParam('CHOICE_PARAM_2') {
             description('Reactive Parameter 2')
-            filterable()
             choiceType('SINGLE_SELECT')
             groovyScript {
                 script('''
@@ -29,7 +27,6 @@ job('example-job-with-three-active-choice-parameters') {
         }
         activeChoiceReactiveParam('CHOICE_PARAM_3') {
             description('Reactive Parameter 3')
-            filterable()
             choiceType('SINGLE_SELECT')
             groovyScript {
                 script('''
