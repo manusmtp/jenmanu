@@ -32,7 +32,7 @@ job('example-job-with-three-active-choice-parameters') {
                 script('''
                     if (CHOICE_PARAM_1.equals("Option 1")) {
                         return ["Option X1", "Option X2"]
-                    } else if (CHOICE_PARAM_1.equals("Option 2")) {
+                    } else if (CHOICE_PARAM_2.equals("Option A2")) {
                         return ["Option Y1", "Option Y2"]
                     } else {
                         return ["Option Z1", "Option Z2"]
