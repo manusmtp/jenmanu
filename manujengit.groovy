@@ -25,7 +25,7 @@ job('example-job-with-three-active-choice-parameters') {
                 ''')
                 fallbackScript('return ["ERROR"]')
             }
-            referencedParameters('CHOICE_PARAM_1')
+            referencedParameter('CHOICE_PARAM_1')
         }
         activeChoiceReactiveParam('CHOICE_PARAM_3') {
             description('Reactive Parameter 3')
@@ -43,7 +43,7 @@ job('example-job-with-three-active-choice-parameters') {
                 ''')
                 fallbackScript('return ["ERROR"]')
             }
-            referencedParameters('CHOICE_PARAM_1', 'CHOICE_PARAM_2')
+            referencedParameter('CHOICE_PARAM_1', 'CHOICE_PARAM_2')
         }
     }
    
