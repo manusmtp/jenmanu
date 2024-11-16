@@ -43,7 +43,8 @@ job('example-job-with-three-active-choice-parameters') {
                 ''')
                 fallbackScript('return ["ERROR"]')
             }
-            referencedParameter('CHOICE_PARAM_1', 'CHOICE_PARAM_2')
+            referencedParameter('CHOICE_PARAM_1')
+            referencedParameter('CHOICE_PARAM_2')
         }
     }
    
